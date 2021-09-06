@@ -1,1 +1,69 @@
 #include<stdio.h>
+
+
+int main(){
+	
+	int n,m,k,l,i,j,g,h,A[10][10],B[10][10],C[10][10];
+
+	printf("Escribe el numero de renglones de A: ");
+	scanf("%d",&n);
+	printf("Escribe el numero de columnas de A: ");
+	scanf("%d",&m);
+	
+	
+	for(i=0;i<n;i++){
+		for(j=0;j<m;j++){
+			printf("A[%d][%d] ",i,j);
+			scanf("%d",&A[i][j]);
+		}
+	}
+	
+	printf("El arreglo A contiene: \n");
+	for(i=0;i<n;i++){
+		for(j=0;j<m-1;j++)
+		    printf("%d,",A[i][j]);
+		printf("%d\n",A[i][m-1]);
+	}
+	
+	printf("Escribe el numero de renglones de B: ");
+	scanf("%d",&k);
+	printf("Escribe el numero de columnas de B: ");
+	scanf("%d",&l);
+	
+	for(g=0;g<k;g++){
+		for(h=0;h<l;h++){
+			printf("B[%d][%d] ",g,h);
+			scanf("%d",&B[g][h]);
+		}
+	}
+	
+	printf("El arreglo B contiene: \n");
+	for(g=0;g<k;g++){
+		for(h=0;h<l-1;h++)
+		    printf("%d,",B[g][h]);
+		printf("%d\n",B[g][l-1]);    
+	}
+	
+	printf("Producto");
+	for(h=0;h<l;h++){
+		for(i=0;i<n;i++){
+			int suma=0;
+			
+			for(j=0;j<m;j++){
+				
+				suma += A[i][j]*B[j][h];
+			}
+		C[i][h]= suma;
+		}
+	}
+	
+	printf("La matriz C contiene: \n");
+	for(i=0;i<l;i++){
+		for(j=0;j<k;j++){
+			printf("%d ",C[i][j]);
+		}
+		printf("\n");
+	}
+	
+	return(1);
+}
